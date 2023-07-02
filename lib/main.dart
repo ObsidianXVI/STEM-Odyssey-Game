@@ -13,11 +13,11 @@ part './schemas/place_of_work.dart';
 part './schemas/schema_object.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const STEMOdyssey());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class STEMOdyssey extends StatelessWidget {
+  const STEMOdyssey({super.key});
 
   // This widget is the root of your application.
   @override
