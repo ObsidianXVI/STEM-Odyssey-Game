@@ -1,3 +1,3 @@
 part of game;
 
-class ProfileData {}
+// class ProfileData extends SchemaObject {}

@@ -1,6 +1,6 @@
 part of game;
 
-class JourneyData {
+class JourneyData extends SchemaObject {
 /*   final List<UnlockableItem> unlockables;
 
   JourneyData({

@@ -1,37 +1,45 @@
 part of game;
 
-class AvatarData {
+enum Gender {
+  male,
+  female,
+  others,
+}
+
+enum SkinTone {
+  a,
+  b,
+  c,
+  d,
+}
+
+class AvatarData extends SchemaObject {
   final String name;
   final int age;
-  final List<String> subjects;
-  final List<String> universityDegrees;
-  final List<String> passions;
-  final bool male;
+  final List<Subject> subjects;
+  final List<PersonalityTrait> personalityTraits;
+  final Gender gender;
+  final SkinTone skinTone;
 
   const AvatarData({
     required this.name,
     required this.age,
     required this.subjects,
-    required this.universityDegrees,
-    required this.passions,
-    required this.male,
+    required this.personalityTraits,
+    required this.gender,
+    required this.skinTone,
   });
 
-  AvatarData.fromJSON(Map<String, dynamic> json)
-      : age = json['age'],
-        name = json['name'],
-        subjects = json['subjects'],
-        universityDegrees = json['universityDegrees'],
-        passions = json['passions'],
-        male = json['male'];
-
+  @override
   Map<String, dynamic> toJson() {
     return {
       'name': name,
-      'subjects': subjects,
-      'university_degrees': universityDegrees,
-      'passions': passions,
-      'male': male,
+      'subjects': [for (Subject s in subjects) s.toJson()],
+      'personalityTraits': [
+        for (PersonalityTrait t in personalityTraits) t.toJson()
+      ],
+      'gender': gender.name,
+      'skinTone': skinTone.name,
     };
   }
 }
